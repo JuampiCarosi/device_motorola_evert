@@ -66,3 +66,5 @@ on property:sys.boot_completed=1
     write /sys/devices/platform/kcal_ctrl.0/kcal_enable 0
     write /sys/devices/platform/kcal_ctrl.0/kcal "230 230 230"
     write /sys/devices/platform/kcal_ctrl.0/kcal_enable 1
+# Battery led
+    write /sys/class/leds/charging/max_brightness 1
