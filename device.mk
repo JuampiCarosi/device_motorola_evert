@@ -51,6 +51,10 @@ PRODUCT_PACKAGES += \
     libqcomfm_jni \
     qcom.fmradio
 
+# Camera
+PRODUCT_PACKAGES += \
+    android.frameworks.sensorservice@1.0.vendor
+
 # Init
 PRODUCT_PACKAGES += \
     init.evert.rc
