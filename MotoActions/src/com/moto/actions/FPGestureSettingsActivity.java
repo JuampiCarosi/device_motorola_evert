@@ -18,20 +18,15 @@ package com.moto.actions;
 
 import android.os.Bundle;
 
-import android.preference.PreferenceActivity;
+import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
 
-public class FPGestureSettingsActivity extends PreferenceActivity {
+public class FPGestureSettingsActivity extends CollapsingToolbarBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (getActionBar() != null) {
-            getActionBar().setDisplayHomeAsUpEnabled(true);
-            getActionBar().setTitle(R.string.fingerprint_gestures_title);
-        }
-
             getFragmentManager().beginTransaction()
-                    .replace(android.R.id.content, new FPGestureSettingsFragment()).commit();
+                    .replace(com.android.settingslib.collapsingtoolbar.R.id.content_frame, new FPGestureSettingsFragment()).commit();
         }
     }
