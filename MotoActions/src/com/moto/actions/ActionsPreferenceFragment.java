@@ -1,5 +1,6 @@
 /*
- * Copyright (c) 2016 The CyanogenMod Project
+ * Copyright (C) 2015-2016 The CyanogenMod Project
+ * Copyright (C) 2017 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,19 +18,12 @@
 package com.moto.actions;
 
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
+import androidx.preference.PreferenceFragment;
 
-public class DozeSettingsActivity extends PreferenceActivity {
+public class ActionsPreferenceFragment extends PreferenceFragment {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getActionBar() != null) {
-            getActionBar().setDisplayHomeAsUpEnabled(true);
-            getActionBar().setTitle(R.string.ambient_display_title);
-        }
-
-        getFragmentManager().beginTransaction()
-                .replace(android.R.id.content, new DozeSettingsFragment()).commit();
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        addPreferencesFromResource(R.xml.main_panel);
     }
 }
