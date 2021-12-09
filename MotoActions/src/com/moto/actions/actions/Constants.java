@@ -173,7 +173,7 @@ public class Constants {
         sBooleanNodePreferenceMap.put(FP_KEY_HOLD_OFF, FP_KEY_SCREENOFF_HOLD_NODE);
         sBooleanNodePreferenceMap.put(FP_KEY_LEFT_OFF, FP_KEY_SCREENOFF_LEFT_NODE);
         sBooleanNodePreferenceMap.put(FP_KEY_RIGHT_OFF, FP_KEY_SCREENOFF_RIGHT_NODE);
-        sNodeDefaultMap.put(FP_HOME_KEY, false);
+        sNodeDefaultMap.put(FP_HOME_KEY, true);
         sNodeDefaultMap.put(FP_HOME_KEY_OFF, false);
         sNodeDefaultMap.put(FP_HAPTIC_KEY, false);
         sNodeDefaultMap.put(FP_HAPTIC_SCREENOFF_KEY, false);

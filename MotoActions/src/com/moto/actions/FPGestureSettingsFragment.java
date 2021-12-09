@@ -54,27 +54,6 @@ public class FPGestureSettingsFragment extends PreferenceFragment {
         return view;
     }
 
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        View switchBar = view.findViewById(R.id.switch_bar);
-        mFPGestureSwitch = (Switch) switchBar.findViewById(android.R.id.switch_widget);
-        mFPGestureSwitch.setChecked(isFPGestureEnabled());
-        mFPGestureSwitch.setOnCheckedChangeListener(mFPGesturePrefListener);
-
-        switchBar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mFPGestureSwitch.toggle();
-            }
-        });
-
-        mSwitchBarText = switchBar.findViewById(R.id.switch_text);
-        mSwitchBarText.setText(isFPGestureEnabled() ? R.string.switch_bar_on :
-                R.string.switch_bar_off);
-    }
-    
     private void updatePrefs(boolean enabled){
         Editor prefEditor = PreferenceManager.getDefaultSharedPreferences(getActivity()).edit();
         prefEditor.putBoolean(FP_HOME_KEY, enabled);
@@ -107,7 +86,6 @@ public class FPGestureSettingsFragment extends PreferenceFragment {
         @Override
         public void onCheckedChanged(CompoundButton compoundButton, boolean enable) {
             updatePrefs(enable);
-            mSwitchBarText.setText(enable ? R.string.switch_bar_on : R.string.switch_bar_off);
         }
     };
 

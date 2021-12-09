@@ -49,27 +49,6 @@ public class DozeSettingsFragment extends PreferenceFragment {
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        View switchBar = view.findViewById(R.id.switch_bar);
-        mAmbientDisplaySwitch = (Switch) switchBar.findViewById(android.R.id.switch_widget);
-        mAmbientDisplaySwitch.setChecked(MotoActionsSettings.isDozeEnabled(getActivity().getContentResolver()));
-        mAmbientDisplaySwitch.setOnCheckedChangeListener(mAmbientDisplayPrefListener);
-
-        switchBar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mAmbientDisplaySwitch.toggle();
-            }
-        });
-
-        mSwitchBarText = switchBar.findViewById(R.id.switch_text);
-        mSwitchBarText.setText(MotoActionsSettings.isDozeEnabled(getActivity().getContentResolver()) ? R.string.switch_bar_on :
-                R.string.switch_bar_off);
-    }
-
-    @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.doze_panel);
         boolean dozeEnabled = MotoActionsSettings.isDozeEnabled(getActivity().getContentResolver());
@@ -78,17 +57,7 @@ public class DozeSettingsFragment extends PreferenceFragment {
         updatePrefs(dozeEnabled);
     }
 
-    private CompoundButton.OnCheckedChangeListener mAmbientDisplayPrefListener =
-        new CompoundButton.OnCheckedChangeListener() {
-        @Override
-        public void onCheckedChanged(CompoundButton compoundButton, boolean enable) {
-            if (enableDoze(enable)) {
-                updatePrefs(enable);
-                mSwitchBarText.setText(enable ? R.string.switch_bar_on : R.string.switch_bar_off);
-            }
-        }
-    };
-    
+  
     private void updatePrefs(boolean enabled){
         mHandwavePreference.setEnabled(enabled);
         mPickupPreference.setEnabled(enabled);
